@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import productos from "./data/personas.json";
 
-function App() {
+const App =() => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <p>Chocolates</p>
+      {
+        productos.map(producto =>{
+          <div><p>Marca: {producto.marca}</p>
+            <p>Producto:{producto.producto}</p>
+          </div>
+        })
+      }
     </div>
   );
 }
