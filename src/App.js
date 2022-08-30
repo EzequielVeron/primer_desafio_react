@@ -1,18 +1,14 @@
-import productos from "./data/personas.json";
+import NavBar from "./components/NavBar";
+import  "./app/styles.css";
+
 
 const App =() => {
-  return (
-    <div className="App">
-      <p>Chocolates</p>
-      {
-        productos.map(producto =>{
-          <div><p>Marca: {producto.marca}</p>
-            <p>Producto:{producto.producto}</p>
-          </div>
-        })
-      }
+ 
+    <div classname="app">
+      <NavBar/>
+      <h2>menu de navegacion</h2>
     </div>
-  );
+  
 }
 
 export default App;
