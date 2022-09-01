@@ -4,11 +4,14 @@ const NavBar = () => {
     return (
         <div class="menu">
 
-        <h1>NavBar</h1>
-        <img href="../public/logo512"/>
-        <h2>inicio</h2>
-        <h2>nosotros</h2>
-        <h2>contacto</h2>
+<ul>
+    <img href="../public/logo512.png"/>
+    <li>Inicio</il>
+    <li>Nosotros</il>
+    <li>Contacto</il>
+
+
+</ul>
         </div>
     )
 
