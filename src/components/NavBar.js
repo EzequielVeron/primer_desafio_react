@@ -6,9 +6,9 @@ const NavBar = () => {
 
 <ul>
     <img href="../public/logo512.png"/>
-    <li>Inicio</il>
-    <li>Nosotros</il>
-    <li>Contacto</il>
+    <il>Inicio</il>
+    <il>Nosotros</il>
+    <il>Contacto</il>
 
 
 </ul>

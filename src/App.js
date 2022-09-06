@@ -8,7 +8,7 @@ const App =() => {
     return( 
     <div classname="app">
       <NavBar/>
-      <ItemListContainer greetings=("Bienvenido")/>
+      <ItemListContainer greetings={"Bienvenido"}/>
       </div>
     )
 ;}
