@@ -1,25 +1,31 @@
 import "./itemCount.css";
 
-import React, {UseState} from "react";
+import React, {UseState, UseEffect} from "react";
 
 export const itemCount = ({initial, stock, onAdd}) =>{
-    const [count, setcount] = UseState(parseInt(initial));
+    const [Count, setCount] = UseState(parseInt(initial));
 
     const decrease = () => {
-        setcount(count - 1);
-     }
+        setCount(Count - 1);
+    }
 
     const increase = () => {
-        setcount(count + 1);
-     }
+        setCount(Count + 1);
+    }
+
+    UseEffect(()=> {
+        setCount(parseInt(initial));
+    },[initial] )
+
+
 
     return (
         <div className="counter">
-            <button disabled={count <= 1} onClick={decrease}>-</button>
-            <span>count</span>
-            <button disabled={count >= stock} onClick={increase}>+</button>
+            <button disabled={Count <= 1} onClick={decrease}>-</button>
+            <span>Count</span>
+            <button disabled={Count >= stock} onClick={increase}>+</button>
             <div>
-                <button disabled={stock <= 0 } onClick={()=> onAdd(count)}>Agregar al carrito</button>
+                <button disabled={stock <= 0 } onClick={()=> onAdd(Count)}>Agregar al carrito</button>
             </div>
         </div>
     )

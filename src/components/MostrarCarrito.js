@@ -4,7 +4,7 @@ import React from "react"
 const MostrarCarrito =({cart}) => {
     return(
         <div>
-       En total hhay {cart} Productos
+    En total hay {cart} Productos
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import ItemDetail from "../ItemDetail/ItemDetail.js";
+import ItemDetail from "../ItemDetail/ItemDetail";
 import React, {useEffect, useState} from "react";
 
 
