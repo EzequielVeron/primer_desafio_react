@@ -1,5 +1,5 @@
-import ItemDetail from "../ItemDetail/ItemDetail";
-import React, {UseEffect, UseState} from "react";
+import ItemDetail from "../ItemDetail/ItemDetail.js";
+import React, {useEffect, useState} from "react";
 
 
 const film = { id:1, Image:"../components/app/img/relleno_bonobon.jpg", tittle:"pasta bonobon"};
@@ -7,17 +7,17 @@ const film = { id:1, Image:"../components/app/img/relleno_bonobon.jpg", tittle:"
 
 
 export const ItemdetailContainer = () => {
-    const [data, setData] = UseState ({});
+    const [data, setData] = useState ({});
 
-    UseEffect (() =>{
-        const GetData = new Promise((resolve => {
+    useEffect (() =>{
+        const getData = new Promise((resolve => {
             setTimeout(()=>{
                 resolve(film);
             }, 3000);
             
-        });
+        }));
 
-        GetData.then(res => setData(res));
+        getData.then(res => setData(res));
     },[])
     
     return (

@@ -2,13 +2,13 @@ import React from "react";
 
 const NavBar = () => {
     return (
-        <div class="menu">
+        <div className="menu">
 
 <ul>
     <img href="../public/logo512.png"/>
-    <il>Inicio</il>
-    <il>Nosotros</il>
-    <il>Contacto</il>
+    <li>Inicio</li>
+    <li>Nosotros</li>
+    <li>Contacto</li>
 
 
 </ul>
