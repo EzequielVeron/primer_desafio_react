@@ -12,7 +12,7 @@ const films= [{id:1, image:"https://picsum.photos/id/237/200/300", tittle:"black
 
 //Contador de productos//
 
-export const ItemListContainer = ({}) =>{
+export const ItemListContainer = ({texto}) =>{
 const [data, setData] = UseState([]);
 
 UseEffect(() => {
@@ -21,8 +21,9 @@ UseEffect(() => {
             resolve(films);
             }, 3000);
         });
+        getData.then (res => setData(res));
     });
-    getData.then(res => setData(res))
+    
 }, [];
 
 getData.then(res => setData(res))
@@ -30,14 +31,15 @@ getData.then(res => setData(res))
     const onAdd= (quantity) => {
     console.log(`compraste ${quantity} unidades`)
 
-
+//Contador de productos//
     return(
         <>
         <title greetings={texto}/>
         <ItemCount initial={1} stock={5} onAdd={onAdd}/>
         <ItemList data={data}/>
         </>
-    );}
+    );
+}
 
 
 export default ItemListContainer;
