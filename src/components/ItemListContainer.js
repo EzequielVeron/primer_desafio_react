@@ -1,13 +1,9 @@
-import React, {UseState, UseEffect}from "react";
-import ItemCount from "./item.count";
+import React, {useState, useEffect}from "react";
+import {useParams} from "react-router-dom"
 
 
 
-
-
-
-
-const films= [{id:1, image:"https://picsum.photos/id/237/200/300", tittle:"black"},
+const productos= [{id:1, image:"https://picsum.photos/id/237/200/300", tittle:"black"},
     {id:2, image:"https://picsum.photos/seed/picsum/200/300", tittle:"winter"},
     {id:3, image:"https://picsum.photos/200/300?grayscale", tittle:"grey"},
 ];
@@ -18,27 +14,27 @@ const films= [{id:1, image:"https://picsum.photos/id/237/200/300", tittle:"black
 //Contador de productos//
 
 export const ItemListContainer = ({texto}) =>{
-const [data, setData] = UseState([]);
+const [data, setData] = useState([]);
 
-UseEffect(() => {
+
+useEffect(() => {
         const getData = new Promise ((resolve) =>{
             setTimeout(()=>{
-            resolve(films);
+            resolve(productos);
             }, 3000);
         });
         getData.then ((res) => setData(res));
+        
 }, []);
 
-    const onAdd= (quantity) => {
-    console.log(`compraste ${quantity} unidades`);
-    };
+    
 
 //Contador de productos//
     return(
         <>
         <title greetings={texto}/>
-        <ItemCount initial={1} stock={5} onAdd={onAdd}/>
-        <h1>ItemDetail data={data}</h1>
+        
+        <h2>ItemDetail data={data}</h2>
         </>
     );
 }
