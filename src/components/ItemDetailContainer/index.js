@@ -1,5 +1,6 @@
 
 import React, {useEffect, useState} from "react";
+import ItemDetail from "../ItemDetail";
 
 
 
@@ -23,13 +24,11 @@ export const ItemDetailContainer = () => {
         getData.then(res => setData(res));
     },[])
 
-    const onAdd= (quantity) => {
-        console.log(`compraste ${quantity} unidades`);
-        };
+    
     
     return (
         <>
-        <h1>ItemDetail data={data}</h1>
+        <h1><ItemDetail data={data}/></h1>
             
         </>
     );

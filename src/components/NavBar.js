@@ -1,5 +1,7 @@
 import React from "react";
-import chocolatory from "../public/img/chocolatory";
+
+import CartWidget from "../CartWidget";
+
 
 
 const NavBar = () => {
@@ -8,7 +10,7 @@ const NavBar = () => {
 
 <nav className="navbar navbar-expand-lg bg-light">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#"><img src={chocolatory} /></a>
+    <a className="navbar-brand" href="#"></a>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
@@ -24,7 +26,7 @@ const NavBar = () => {
           <a className="nav-link" href="#">Productos</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#">Tu carrito</a>
+          <a className="nav-link" href="#">carrito</a>
         </li>
       </ul>
     </div>

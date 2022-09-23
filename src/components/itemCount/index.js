@@ -1,10 +1,9 @@
-import React, {UseState, UseEffect} from "react";
+import React, {useState, useEffect} from "react";
+import "./Contador.css";
 
-
-import "./itemCount.css";
-
-export const itemCount = ({initial, stock, onAdd}) =>{
-    const [count, setCount] = UseState(parseInt('initial'));
+const ItemCount = ({initial, stock, onAdd}) =>{
+    const [count, setCount] = useState(parseInt('initial'));
+    
 
     const decrease = () => {
         setCount(count - 1);
@@ -14,22 +13,25 @@ export const itemCount = ({initial, stock, onAdd}) =>{
         setCount(count + 1);
     }
 
-    UseEffect(()=> {
+    useEffect(()=> {
         setCount(parseInt(initial));
     },[initial] )
+
+    
 
 
 
     return (
         <div className="counter">
             <button disabled={count <= 1} onClick={decrease}>-</button>
-            <span>Count</span>
+            <span>{count}</span>
             <button disabled={count >= stock} onClick={increase}>+</button>
             <div>
                 <button disabled={stock <= 0 } onClick={()=> onAdd(count)}>Agregar al carrito</button>
+                
             </div>
         </div>
     )
-}
+};
 
-export default itemCount;
+export default ItemCount;

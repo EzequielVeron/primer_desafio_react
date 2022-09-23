@@ -1,5 +1,8 @@
 import React, {useState, useEffect}from "react";
-import {useParams} from "react-router-dom"
+import ItemDetail from "./ItemDetail";
+import { useParams } from "react-router";
+import ItemList from "./ItemList";
+import ItemCount from "./ItemCount";
 
 
 
@@ -21,20 +24,23 @@ useEffect(() => {
         const getData = new Promise ((resolve) =>{
             setTimeout(()=>{
             resolve(productos);
-            }, 3000);
+            }, 5000);
         });
         getData.then ((res) => setData(res));
         
-}, []);
+}, [])
 
-    
+const onAdd = (quantity) =>{
+    console.log(`compraste ${quantity} unidades`);
+}
 
-//Contador de productos//
+//me devolveria las imagenes de productos//
     return(
         <>
         <title greetings={texto}/>
+        <ItemCount initial={1} stock={5} onAdd={onAdd}/>
         
-        <h2>ItemDetail data={data}</h2>
+        <ItemList data={data}/>
         </>
     );
 }

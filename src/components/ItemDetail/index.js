@@ -1,5 +1,5 @@
 import React from "react";
-import ItemCount from "itemCount";
+import  ItemCount from "ItemCount";
 import {useState} from "react";
 import { Link } from "react-router-dom";
 
