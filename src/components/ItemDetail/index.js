@@ -1,32 +1,21 @@
 import React from "react";
-import  ItemCount from "ItemCount";
-import {useState} from "react";
-import { Link } from "react-router-dom";
+import ItemCount from "../ItemCount/index";
+import { useCartContext } from "../../Api/CartContext";
 
 
-export const ItemDetail = (data) => {
-    const [GoToCart, SetGoToCart] = useState (false);
+const ItemDetail = ({product}) =>{
+    const {add, addToCart}= useCartContext();
+    const onAdd=(quantity) => {
+        addToCart(product, quantity);
+    };
 
-
-    const onAdd= () => {
-        SetGoToCart(true);
-        };
-    return (<>
-        <div className="container">
-        <div className="detail">
-            <img className="detail_image" src={data.image} alt="" /> 
-            <div className="content">
-                <h1>{data.tittle}</h1>
-                {
-                    GoToCart
-                    ? <Link to="/cart">Terminar compra</Link>
-                    :    <ItemCount initial={1} stock={5} onAdd={onAdd}/>
-}
-        </div>
-            </div>
-            </div> 
-            </>
-    );
-}
+    return <div className="ItemDetail">
+        <h1>{product.name}</h1>
+        <p>{product.category}</p>
+        <p>${product.price}</p>
+        <p>stock {product.stock}</p>
+        <ItemCount initial={1} onAdd={onAdd} />
+    </div>
+};
 
 export default ItemDetail;

@@ -1,10 +1,11 @@
 import React from "react";
-
-import CartWidget from "../CartWidget";
+import { Link } from "react-router-dom";
+import { useCartContext } from "../Api/CartContext";
 
 
 
 const NavBar = () => {
+  const {TotalQuantity, TotalPrice} = useCartContext();
     return (
         <div className="menu">
 
@@ -17,7 +18,7 @@ const NavBar = () => {
     <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">Inicio</a>
+          <a className="nav-link active" aria-current="page" href="#"><Link to="/">Inicio</Link>0</a>
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">Nosotros</a>
@@ -27,12 +28,14 @@ const NavBar = () => {
         </li>
         <li className="nav-item">
           <a className="nav-link" href="#">carrito</a>
+          
         </li>
       </ul>
     </div>
   </div>
 </nav>
-
+<p>Total: ${TotalPrice}</p>
+<p>Cantidad de productos:{TotalQuantity}</p>
         </div>
     )
 
