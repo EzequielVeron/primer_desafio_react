@@ -36,7 +36,7 @@ useEffect(() => {
 
 
 
-return Loading ? <p>LOADING...</p> : <ItemList products={products} />;
+return Loading ? <p>cargando...</p> : <ItemList products={products} />;
 };
 
 export default ItemListContainer;

@@ -21,7 +21,7 @@ const ItemDetailContainer = () =>{
             setLoading(false);
         });
     }, [productId]);
-    return loading ? <p>LOADING...</p> : <ItemDetail product={product} />;
+    return loading ? <p>cargando...</p> : <ItemDetail product={product} />;
 };
 
 
