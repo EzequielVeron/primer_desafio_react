@@ -1,37 +1,36 @@
-import React, {useState, useEffect} from "react";
-import "./Contador.css";
+import React, { useState } from 'react';
+import "../ItemCount/ItemCount.css";
 
-const ItemCount = ({initial, stock, onAdd}) =>{
-    const [count, setCount] = useState(parseInt('initial'));
-    
 
-    const decrease = () => {
-        setCount(count - 1);
+const ItemCount = ({ initial, onAdd }) => {
+  const [qty, setQty] = useState(initial);
+
+  const onChangeHandller = (e) => {
+    let a;
+    if (parseInt(e.target.value)) {
+      a = parseInt(e.target.value);
+    } else {
+      a = 1;
     }
+    setQty(a);
+  };
 
-    const increase = () => {
-        setCount(count + 1);
-    }
-
-    useEffect(()=> {
-        setCount(parseInt(initial));
-    },[initial] )
-
-    
-
-
-
-    return (
-        <div className="counter">
-            <button disabled={count <= 1} onClick={decrease}>-</button>
-            <span>{count}</span>
-            <button disabled={count >= stock} onClick={increase}>+</button>
-            <div>
-                <button disabled={stock <= 0 } onClick={()=> onAdd(count)}>Agregar al carrito</button>
-                
-            </div>
-        </div>
-    )
+  return (
+    <div className='itemCount'>
+      <div className='count'>
+        <input type='button' value={'-'} onClick={() => (qty > 1 ? setQty(qty - 1) : 1)} />
+        <input className='qty' type='number' value={qty} onChange={onChangeHandller} autoFocus />
+        <input type='button' value={'+'} onClick={() => (qty < 99 ? setQty(qty + 1) : 99)} />
+      </div>
+      <div
+        onClick={() => {
+          onAdd(qty);
+        }}
+        className='btn-addToCart'>
+        <input type='button' value='Add to cart' />
+      </div>
+    </div>
+  );
 };
 
 export default ItemCount;

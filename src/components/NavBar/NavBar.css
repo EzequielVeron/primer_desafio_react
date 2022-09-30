@@ -1,0 +1,28 @@
+ul {
+  padding: 5px;
+  height: 3rem;
+  background-color: #2020e6;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style-type: none;
+  border-radius: 10%;
+}
+
+li {
+  color: rgb(214, 233, 211);
+      font-size: 30px;
+      text-shadow: rgb(12, 12, 12) -2px 0,
+          rgb(11, 15, 15) 2px 0;
+}
+
+.link-nav{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+      font-size: 30px;
+      text-shadow: rgb(33, 19, 19) -2px 0,
+          cyan 2px 0;
+}
+
+.container-nav {
+  font-family: monospace;}

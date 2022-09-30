@@ -1,0 +1,12 @@
+.itemCount{
+    display: flex;
+    color: white;
+    margin-top: 50px;
+    border: 0px solid #3c67e3;
+    border-radius: 20px 100px;
+    padding: 20px;
+    background-color: #000000;
+    font-family: monospace;
+    
+    }
+

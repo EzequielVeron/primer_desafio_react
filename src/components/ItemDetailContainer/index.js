@@ -1,29 +1,31 @@
-import React, {useEffect, useState} from "react";
-import {productos} from "../../Api/productos"; 
-import { useParams } from "react-router";
-import ItemDetail from "../ItemDetail";
+import React, { useEffect, useState } from 'react';
+import ItemDetail from '../ItemDetail/index';
+import { useParams } from 'react-router-dom';
+import { productos } from '../../Api/productos';
 
-const ItemDetailContainer = () =>{
-    const[product, setProduct]= useState({});
-    const [loading, setLoading]= useState(true);
-    const {productId} = useParams();
 
-    useEffect(() =>{
-        const getProducts = new Promise ((resolve, reject) =>{
-            setTimeout(()=>{
-            resolve(productos);
-            }, 3000);
-        });
+const ItemDetailContainer = () => {
+  const [product, setProduct] = useState({});
+  const [loading, setLoading] = useState(true);
 
-        getProducts.then ((result) => {
-            const prodfiltered = result.filter((prod) => prod.id === productId);
-            setProduct(prodfiltered[0]);
-            setLoading(false);
-        });
-    }, [productId]);
-    return loading ? <p>cargando...</p> : <ItemDetail product={product} />;
+  const { productId } = useParams();
+
+  useEffect(() => {
+    const getProducts = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(productos);
+      }, 2000);
+    });
+
+    getProducts.then((result) => {
+      const prodFiltered = result.filter((prod) => prod.id === productId);
+      setProduct(prodFiltered);
+      setLoading(false);
+      console.log(prodFiltered)
+    });
+  }, [productId]);
+
+  return loading ? <p>LOADING....</p> : <ItemDetail product={product} />;
 };
 
-
 export default ItemDetailContainer;
-
