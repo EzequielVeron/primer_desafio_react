@@ -1,12 +1,19 @@
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/NavBar/NavBar';
+import { collection, getDocs } from 'firebase/firestore';
+import {db} from "./application/Firebaseconfig";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import React,{useState} from 'react';
+
 
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/index';
 import CartProvider from './CartContext/index';
 import Cart from './components/Cart/Cart';
 function App() {
+  const [usuario, setUsuario] = useState(null)
   return (
     <>
       <CartProvider>
@@ -22,6 +29,9 @@ function App() {
           
         </BrowserRouter>
       </CartProvider>
+      <div className="" >
+        { usuario ? <Home/> : <Login/>}
+      </div>
     </>
   );
 }
