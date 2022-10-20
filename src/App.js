@@ -1,38 +1,34 @@
+import {  Routes, Route } from "react-router-dom";
+import Home from "./view/Home";
+import Carrito from "./view/Carrito";
+import Producto from "./view/Producto";
+import CheckOut from "./view/CheckOut";
+import Perfil from "./view/Perfil";
+import Login from "./view/Login";
+import NotFound from "./view/NotFound";
+import { auth } from "./Firebase/credenciales";
+import { useUserContext } from "./contexts/userContext";
+import { onAuthStateChanged } from "firebase/auth";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar from './components/NavBar/NavBar';
-import { collection, getDocs } from 'firebase/firestore';
-import {db} from "./application/Firebaseconfig";
-import Home from "./components/Home";
-import Login from "./components/Login";
-import React,{useState} from 'react';
-
-
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import ItemDetailContainer from './components/ItemDetailContainer/index';
-import CartProvider from './CartContext/index';
-import Cart from './components/Cart/Cart';
 function App() {
-  const [usuario, setUsuario] = useState(null)
+  const { setUser } = useUserContext();
+  onAuthStateChanged(auth, (firebaseUser) => {
+    if (firebaseUser) setUser(firebaseUser);
+    if (!firebaseUser) setUser();
+  });
+
   return (
-    <>
-      <CartProvider>
-        <BrowserRouter>
-          <Navbar />
-          <Routes>
-            <Route path='/' element={<ItemListContainer />} />
-            <Route path='/productos' element={<ItemListContainer />} />
-            <Route path='/categorias/:categoryId' element={<ItemListContainer />} />
-            <Route path='/producto/:productId' element={<ItemDetailContainer />} />
-            <Route path='/cart' element={<Cart/>} />
-          </Routes>
-          
-        </BrowserRouter>
-      </CartProvider>
-      <div className="" >
-        { usuario ? <Home/> : <Login/>}
-      </div>
-    </>
+  
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="producto/:id" element={<Producto />} />
+      <Route path="perfil" element={<Perfil />} />
+      <Route path="carrito" element={<Carrito />} />
+      <Route path="checkout" element={<CheckOut />} />
+      <Route path="login" element={<Login />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+    
   );
 }
 
