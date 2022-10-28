@@ -6,6 +6,14 @@ import { Link } from "react-router-dom";
 import { loginEmail, createCheckoutSession } from "../functions/";
 import { MdOutlineClose } from "react-icons/md";
 
+
+
+
+
+
+
+
+
 function Carrito() {
   const { carrito } = useCarritoContext();
 
@@ -111,7 +119,7 @@ function Carrito() {
           </Link>
         </>
       ) : (
-        carrito?.map((producto) => <CartItem producto={producto} />)
+        carrito.map((producto) => <CartItem producto={producto} />)
       )}
       {carrito?.length > 0 && (
         <button
@@ -127,4 +135,4 @@ function Carrito() {
   );
 }
 
-export default Carrito;
+export default Carrito; 

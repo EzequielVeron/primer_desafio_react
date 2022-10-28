@@ -1,33 +1,74 @@
-import React from "react";
+import React, {useState}from "react";
+import { Stack, Container, Form, Button } from "react-bootstrap";
 
-function LoginForm({ onSubmit }) {
+import firebaseApp from "../Firebase/credenciales";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+  
+
+} from "firebase/auth";
+const auth = getAuth(firebaseApp);
+
+
+
+const LoginForm = () => {
+  const [estaRegistrandose, setEstaRegistrandose] = useState(false);
+
+  async function submitHandler(e) {
+    e.preventDefault();
+    const correo = e.target.formBasicEmail.value;
+    const contra = e.target.formBasicPassword.value;
+
+    if (estaRegistrandose) {
+      //si se registra
+      const usuario = await createUserWithEmailAndPassword(
+        auth,
+        correo,
+        contra,
+        
+      );
+    } else {
+      // si está iniciando sesión
+      signInWithEmailAndPassword(auth, correo, contra);
+    }
+  }
+
   return (
-    <form
-      onSubmit={(e) => onSubmit(e)}
-      className="flex flex-col w-full items-center"
-    >
-      <input
-        className="w-5/6 border-2 border-slate-300 px-5 py-2 my-1 rounded-md"
-        type="text"
-        name="email"
-        placeholder="tumail@hotmail.com"
-      />
-      <input
-        className="w-5/6 border-2 border-slate-300 px-5 py-2 my-1 rounded-md"
-        type="password"
-        name="password"
-        placeholder="********"
-      />
-      <button
-        className="bg-azul
-        px-5 py-2 rounded-md my-1 text-white
-        hover:bg-blue-700
-        "
-      >
-        Iniciar Sesión
-      </button>
-    </form>
+    <Container>
+      <Stack gap={3}>
+        <h1>{estaRegistrandose ? "Regístrate" : "inicia sesión"}</h1>
+        <Form onSubmit={submitHandler}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Direccion de email</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>contraseña</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+
+          <Button variant="light" type="submit">
+            {estaRegistrandose ? "Regístrate" : "inicia sesión"}
+          </Button>
+        </Form>
+
+        
+
+        <Button
+          style={{ width: "300px" }}
+          variant="light"
+          onClick={() => setEstaRegistrandose(!estaRegistrandose)}
+        >
+          {estaRegistrandose
+            ? "¿Ya tienes cuenta? Inicia sesión"
+            : "¿No tienes cuenta? Regístrate"}
+        </Button>
+      </Stack>
+    </Container>
   );
-}
+};
 
 export default LoginForm;

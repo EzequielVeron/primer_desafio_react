@@ -10,21 +10,21 @@ function ItemCard({ product }) {
       "
       >
         <img
-          src={product.images[0]}
-          alt={product.name}
+          src={product.image}
+          alt={product.image}
           className="min-w-full h-auto"
         />
-        <h3 className="font-bold text-xl">{product.name}</h3>
+        <h3 className="font-bold text-xl">{product.nombre}</h3>
         <div className="flex items-center">
           <p className="text-slate-600 line-through">
-            ${(product.price.unit_amount * 1.5) / 100}
+            ${(product.price ) }
           </p>
           <span className="mx-2"> →</span>
           <span className="flex items-center">
             <p className="font-bold mx-1 text-lg">
-              ${product.price.unit_amount / 100}
+              ${product.price }
             </p>
-            {product.price.currency}
+            {product.price}
           </span>
         </div>
       </div>

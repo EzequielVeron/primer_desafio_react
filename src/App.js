@@ -1,4 +1,5 @@
 import {  Routes, Route } from "react-router-dom";
+import React from "react";
 import Home from "./view/Home";
 import Carrito from "./view/Carrito";
 import Producto from "./view/Producto";
@@ -11,6 +12,8 @@ import { useUserContext } from "./contexts/userContext";
 import { onAuthStateChanged } from "firebase/auth";
 
 function App() {
+
+
   const { setUser } = useUserContext();
   onAuthStateChanged(auth, (firebaseUser) => {
     if (firebaseUser) setUser(firebaseUser);
@@ -20,7 +23,7 @@ function App() {
   return (
   
     <Routes>
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home/>} />
       <Route path="producto/:id" element={<Producto />} />
       <Route path="perfil" element={<Perfil />} />
       <Route path="carrito" element={<Carrito />} />

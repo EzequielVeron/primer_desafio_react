@@ -4,6 +4,7 @@ import { getProductById, createCheckoutSession } from "../functions";
 import { useCarritoContext } from "../contexts/carritotContext";
 import { useUserContext } from "../contexts/userContext";
 import { Layout } from "../components/";
+import { getItems } from "../Firebase/credenciales";
 
 function Producto() {
   const { id } = useParams();
@@ -31,7 +32,7 @@ function Producto() {
       <div className="w-full h-full flex items-center justify-between">
         <div id="producto-izquierda" className="w-1/2 p-10">
           <img
-            src={productInfo?.images[0]}
+            src={productInfo?.image}
             alt={productInfo?.name}
             className="max-w-full h-auto"
           />

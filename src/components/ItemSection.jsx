@@ -1,12 +1,21 @@
-import React from "react";
-import ItemCard from "./ItemCard";
 
-function ItemSection({ productos, title }) {
-  return (
+import React, {useState, useEffect, useParams} from "react";
+import ItemCard from "./ItemCard";
+import {doc, getDoc} from "firebase/firestore";
+import   {getItems} from "../Firebase/credenciales";
+
+
+const ItemSection = ({productos, name}) =>{
+
+
+
+
+  
+  return(
     <>
-      <h3 className="text-2xl font-bold underline self-start ml-10 my-10">
+<h3 className="text-2xl font-bold underline self-start ml-10 my-10">
         {" "}
-        {title} :
+        {name} :
       </h3>
       <ul className=" flex flex-row w-full justify-evenly items-center">
         {productos
@@ -20,5 +29,11 @@ function ItemSection({ productos, title }) {
     </>
   );
 }
+    
+    
+  
+
+    
+
 
 export default ItemSection;

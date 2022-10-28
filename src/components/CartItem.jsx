@@ -10,7 +10,7 @@ function CartItem({ producto }) {
         <h3>{producto.name}</h3>
       </div>
       <div>
-        <p>${producto.price.unit_amount / 100}</p>
+        <p>${producto.price}</p>
       </div>
     </div>
   );

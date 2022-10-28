@@ -1,21 +1,30 @@
-import { db } from "../Firebase/credenciales";
-import { doc, collection, getDocs, getDoc } from "firebase/firestore";
+import React from "react";
+import { Stack, Container, Row, Col, Button } from "react-bootstrap";
+import firebaseApp from "../Firebase/credenciales";
+import {getFirestore, updateDoc, doc, collection, getDocs, query} from 'firebase/firestore';
+import {db} from '../Firebase/credenciales';
 
-async function getProductById(id) {
-  try {
-    const collectionRef = collection(db, "products");
-    const docuRef = doc(collectionRef, id);
-    const snapDoc = await getDoc(docuRef);
-    const producto = snapDoc.data();
-    // obtenemos el/los precio(s) del producto
-    const precioSnaps = await getDocs(collection(snapDoc.ref, "prices"));
-    producto.price = precioSnaps.docs[0].data();
-    producto.priceId = precioSnaps.docs[0].id;
-    return producto;
-  } catch (error) {
-    console.log(error);
-    return undefined;
-  }
+
+
+const firestore = getFirestore(firebaseApp);
+
+
+
+export const getItems= async ()  => {
+  const colRef = collection(db, 'product');
+  const result = await getDocs(query(colRef));
+  return getArrayFromCollection(result);
+};
+
+const getArrayFromCollection = (collection) => {
+  return collection.docs.map( doc => {
+      return { ...doc.data (), id:doc.id };
+  });
 }
 
-export default getProductById;
+
+
+
+
+
+  export default getItems;
