@@ -1,5 +1,3 @@
-/**
-
 
 import { db } from "../Firebase/credenciales";
 import { collection, getDocs } from "firebase/firestore";
@@ -13,4 +11,3 @@ async function getPaymentsByUID(uid) {
 }
 
 export default getPaymentsByUID;
-**/

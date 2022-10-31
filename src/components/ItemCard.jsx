@@ -24,7 +24,7 @@ function ItemCard({ product }) {
             <p className="font-bold mx-1 text-lg">
               ${product.price }
             </p>
-            {product.price}
+            {product.description}
           </span>
         </div>
       </div>

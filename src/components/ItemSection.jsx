@@ -5,7 +5,7 @@ import {doc, getDoc} from "firebase/firestore";
 import   {getItems} from "../Firebase/credenciales";
 
 
-const ItemSection = ({productos, name}) =>{
+const ItemSection = ({productos, nombre}) =>{
 
 
 
@@ -15,7 +15,7 @@ const ItemSection = ({productos, name}) =>{
     <>
 <h3 className="text-2xl font-bold underline self-start ml-10 my-10">
         {" "}
-        {name} :
+        {nombre} :
       </h3>
       <ul className=" flex flex-row w-full justify-evenly items-center">
         {productos

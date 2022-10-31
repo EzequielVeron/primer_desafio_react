@@ -1,34 +1,29 @@
 import React, { useState, useEffect } from "react";
-
+import ItemCard from "../components/ItemCard";
+import getActiveProducts from "../functions/getActiveProducts";
 import ItemSection from "../components/ItemSection";
 
 import { Layout } from "../components/";
+import { getProductById } from "../functions";
 
-import getItems  from "../functions/getProductById";
-import ItemCount from "../components/ItemCount";
+function Home() {
+const [productos, setProductos] = useState(null);
 
-
-
-export const Home = () =>{
-const [productos, setProductos] = useState (null);
-
-useEffect(() =>{
+useEffect(() => {
     async function getProducts() {
-        const product = await getItems();
-        setProductos(product)
+    const products = await getProductById();
+    setProductos(products);
+console.log("productosHome", products);
     }
+
     getProducts();
-    }, [])
+}, []);
 
 return (
     <Layout>
-<ul>
-    {productos ? productos.map(p=><li key={p.id} >{p.name}</li>
-    ) : null  }
-</ul>;
-    <ItemCount/>
-    </Layout>
+    <ItemSection title="Lo más vendido" productos={productos} />
 
+    </Layout>
 );
 }
 

@@ -18,7 +18,7 @@ function Carrito() {
   const { carrito } = useCarritoContext();
 
   const { user } = useUserContext();
-  const [isModal, setIsModal] = useState(false);
+  const [isModal, setIsModal] = useState(true);
 
   async function login(e) {
     e.preventDefault();
@@ -36,6 +36,10 @@ function Carrito() {
     btn.innerText = "Comprando...";
   }
 
+
+
+  
+
   function LoginForm() {
     return (
       <form
@@ -46,13 +50,13 @@ function Carrito() {
           className="w-5/6 border-2 border-slate-300 px-5 py-2 my-1 rounded-md"
           type="text"
           name="email"
-          placeholder="test@test.com"
+          placeholder="tucorreo@hotmail.com"
         />
         <input
           className="w-5/6 border-2 border-slate-300 px-5 py-2 my-1 rounded-md"
           type="password"
           name="password"
-          placeholder="123456"
+          placeholder="*****"
         />
         <button
           className="bg-azul
@@ -128,7 +132,7 @@ function Carrito() {
           className="bg-slate-800 px-5 py-3 text-white"
         >
           {" "}
-          COMPRAR
+          Comprar Producto
         </button>
       )}
     </Layout>

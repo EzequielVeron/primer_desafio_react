@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack, Container, Row, Col, Button } from "react-bootstrap";
 import firebaseApp from "../Firebase/credenciales";
-import {getFirestore, updateDoc, doc, collection, getDocs, query} from 'firebase/firestore';
+import {getFirestore, updateDoc, doc, collection, getDocs, query, getDoc} from 'firebase/firestore';
 import {db} from '../Firebase/credenciales';
 
 
@@ -22,6 +22,12 @@ const getArrayFromCollection = (collection) => {
   });
 }
 
+
+export const getItemById = async (id) => {
+  const colRef = collection(db, 'product');
+  const result = await getDoc(doc(colRef, id));
+  return result.data();
+}
 
 
 

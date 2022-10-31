@@ -4,7 +4,7 @@ import { getProductById, createCheckoutSession } from "../functions";
 import { useCarritoContext } from "../contexts/carritotContext";
 import { useUserContext } from "../contexts/userContext";
 import { Layout } from "../components/";
-import { getItems } from "../Firebase/credenciales";
+import {getItemById} from '../functions/getProductById';
 
 function Producto() {
   const { id } = useParams();
@@ -13,7 +13,7 @@ function Producto() {
   const { user } = useUserContext();
   useEffect(() => {
     async function getProductInfo() {
-      const product = await getProductById(id);
+      const product = await getItemById(id);
       console.log("producto", product);
       if (!product) {
         window.location = "/notfound";
@@ -41,7 +41,7 @@ function Producto() {
           id="producto-derecha "
           className="w-1/2 h-full flex flex-col items-center justify-evenly"
         >
-          <h1 className="text-5xl font-bold underline">{productInfo?.name}</h1>
+          <h1 className="text-5xl font-bold underline">{productInfo?.nombre}</h1>
           <p className="italic">{productInfo?.description}</p>
           <div className="flex items-center w-full justify-evenly">
             <button
