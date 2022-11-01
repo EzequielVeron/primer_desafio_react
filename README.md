@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## GIF DEL PROYECTO 
+
+https://dp0rksi384o97.cloudfront.net/converted/videos/3e538c80-68d6-5d83-f424-33d4436d745c_custom.mp4?Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6XC9cL2RwMHJrc2kzODRvOTcuY2xvdWRmcm9udC5uZXRcL2NvbnZlcnRlZFwvdmlkZW9zXC8zZTUzOGM4MC02OGQ2LTVkODMtZjQyNC0zM2Q0NDM2ZDc0NWNfY3VzdG9tLm1wNCIsIkNvbmRpdGlvbiI6eyJEYXRlTGVzc1RoYW4iOnsiQVdTOkVwb2NoVGltZSI6MTY2NzQxOTQxOH19fV19&Signature=AmvlgPnhbbOE0x~~UbdW-OriN6AovEorADyxx96eCVc3wX5dZUzuVFh-Xsyfr1FZGSbc7mpH1mJhMcK~0hmQ8GN0XqM5GClsl1ZQeAVcTfEu01SO8IbIa2nbd-GYBoV4NxpBK3FlIPRA2IN8-CWE47bOQHZJ3oZGeolVh0T2oUm2N~YF2cttQG39ADIjfdZ2aAHVT18rKYxoxOlJcHuo8naZ1ejkDTTw-9wYLheeUejhsWNTJF7GAR59efclx0qXNTsYktMoNUv~s1xSPby6gVQPsUtpF7paweN3Pc2SOkrvfXkf4z2cx7tcu8ysmuijx-fAufyS4aw5LxsuaqfmwQ__&Key-Pair-Id=APKAIWQDLHITBKTFWBJA
+
 ## Available Scripts
 
 In the project directory, you can run:
